@@ -5,6 +5,7 @@ using UnityEngine;
 public class DestroyOutOfBounds : MonoBehaviour
 {
     private float lowerBound = -15;
+    private float topBound = 10;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +16,10 @@ public class DestroyOutOfBounds : MonoBehaviour
     void Update()
     {
         if (transform.position.y < lowerBound)
+        {
+            Destroy(gameObject);
+        }
+        if (transform.position.y > topBound)
         {
             Destroy(gameObject);
         }
