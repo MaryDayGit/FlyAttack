@@ -8,11 +8,6 @@ public class PlayerMove : MonoBehaviour
     [SerializeField]
     float moveSpeed = 10f;
     public GameObject projectilePrefab;
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
     // Update is called once per frame
     void Update()
     {

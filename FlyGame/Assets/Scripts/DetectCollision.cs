@@ -4,20 +4,11 @@ using UnityEngine;
 
 public class DetectCollision : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         Destroy(gameObject);
         Destroy(other.gameObject);
+        GlobalCs.money += 1;
+        GlobalCs.level += 1;
     }
 }
