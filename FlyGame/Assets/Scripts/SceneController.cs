@@ -7,6 +7,8 @@ public class SceneController : MonoBehaviour
 {
     public void SceneSwitcher()
     {
+        SaveData.ResetData();
         SceneManager.LoadScene(1);
+
     }
 }

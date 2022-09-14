@@ -7,4 +7,6 @@ public class GlobalCs : MonoBehaviour
     public static float exp;
     public static float level;
     public static float money;
+    public static float enemyHp;
+    public static float damagePlayer;
 }

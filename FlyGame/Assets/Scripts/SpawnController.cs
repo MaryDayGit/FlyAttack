@@ -26,6 +26,6 @@ public class SpawnController : MonoBehaviour
     }
     void SetHpEnemy()
     {
-        hpEnemy = GlobalCs.level * 2;
+        GlobalCs.enemyHp = GlobalCs.level * 2;
     }
 }

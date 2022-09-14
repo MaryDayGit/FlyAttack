@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class MoveForward : MonoBehaviour
 {
-    private float speed = 10.0f;
+    private float speed = 5.0f;
 
-    // Update is called once per frame
     void Update()
     {
-        transform.Translate(new Vector3(0, 2, 0) * Time.deltaTime * speed);
+        transform.Translate(new Vector3(0, 1, 0) * Time.deltaTime * speed);
     }
 }

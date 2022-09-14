@@ -15,4 +15,8 @@ public class SaveGame : MonoBehaviour
     {
         SaveData.LoadGameInfo();
     }
+    public void ResetDataInof()
+    {
+        SaveData.ResetData();
+    }
 }
