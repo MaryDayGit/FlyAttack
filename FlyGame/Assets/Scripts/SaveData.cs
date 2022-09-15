@@ -44,6 +44,7 @@ public class SaveData
             GlobalCs.damagePlayer = 1;
             GlobalCs.level = 1;
             GlobalCs.money = 1;
+            GlobalCs.enemyHp = 1;
             Debug.Log("Data reset ok");
         }
     }

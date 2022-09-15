@@ -17,6 +17,7 @@ public class GameUpdate : MonoBehaviour
         levelNextText.GetComponent<Text>().text = nextlevel.ToString();
         levelPrevText.GetComponent<Text>().text = GlobalCs.level.ToString();
         moneyText.GetComponent<Text>().text = GlobalCs.money.ToString();
+
         OnApplicationQuit();
     }
     void Update()
@@ -26,9 +27,11 @@ public class GameUpdate : MonoBehaviour
         levelNextText.GetComponent<Text>().text = nextlevel.ToString();
         levelPrevText.GetComponent<Text>().text = GlobalCs.level.ToString();
         moneyText.GetComponent<Text>().text = GlobalCs.money.ToString();
+
     }
     void OnApplicationQuit()
     {
+        Debug.Log("Сохранение после выхода");
         SaveData.SaveGameInfo();
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CheckOutOfBounds : MonoBehaviour
 {
-    private float padding = 0.4f;
+    private float padding = 0.5f;
 
     // Update is called once per frame
     void Update()

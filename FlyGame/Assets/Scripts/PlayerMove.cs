@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     [SerializeField]
-    float moveSpeed = 10f;
+    float moveSpeed = 50f;
     public GameObject projectilePrefab;
     // Update is called once per frame
     void Update()

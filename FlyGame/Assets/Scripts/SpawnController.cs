@@ -1,15 +1,15 @@
+using System.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading;
 
 public class SpawnController : MonoBehaviour
 {
-    public GameObject cubeEnemy;
-    private float spawnRangeX = -10;
+    private const float V = 1.2f;
+    public GameObject[] cubeEnemy;
     private float startDelay = 2;
-    private float spawnInterval = 1.3f;
-    private float hpEnemy;
-    // Start is called before the first frame update
+    private float spawnInterval = 0.7f;
     void Start()
     {
         InvokeRepeating("SpawnRandomCube", startDelay, spawnInterval);
@@ -17,15 +17,15 @@ public class SpawnController : MonoBehaviour
     void SpawnRandomCube()
     {
         SetHpEnemy();
-        int spawnCount = Random.Range(2, 5);
-        for (int i = 0; i < spawnCount; i++)
-        {
-            Vector3 spawnPos = new Vector3(Random.Range(spawnRangeX, 10), 7, 0);
-            Instantiate(cubeEnemy, spawnPos, cubeEnemy.transform.rotation);
-        }
+
+        int enemyIndex = Random.Range(0, cubeEnemy.Length);
+
+        Vector3 spawnPos = new Vector3(Random.Range(-GlobalCs.screenWidth / 210, GlobalCs.screenWidth / 210), GlobalCs.screenHeigt / 100, 0);
+        Instantiate(cubeEnemy[enemyIndex], spawnPos, cubeEnemy[enemyIndex].transform.rotation);
+
     }
     void SetHpEnemy()
     {
-        GlobalCs.enemyHp = GlobalCs.level * 2;
+        GlobalCs.enemyHp = GlobalCs.level * V;
     }
 }

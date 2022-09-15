@@ -5,12 +5,22 @@ using UnityEngine.UI;
 
 public class UpLevel : MonoBehaviour
 {
-
-
-
-    public static void fillLevelProgressBar(Slider levelProgressBar)
+    [SerializeField]
+    private Slider levelProgressBar;
+    private static Slider levelProgress;
+    private void Start()
     {
-        Debug.Log(levelProgressBar);
-        levelProgressBar.value += GlobalCs.exp;
+        levelProgress = levelProgressBar;
+    }
+
+    public static void fillLevelProgressBar()
+    {
+        levelProgress.value += GlobalCs.exp;
+        if (levelProgress.value == levelProgress.maxValue)
+        {
+            levelProgress.value = 0;
+            GlobalCs.level += 1;
+
+        }
     }
 }
