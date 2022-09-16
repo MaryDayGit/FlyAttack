@@ -8,6 +8,7 @@ public class SaveData
 {
     public float savedLevel;
     public float savedMoney;
+    public float savedDamage;
     public static void SaveGameInfo()
     {
         BinaryFormatter bf = new BinaryFormatter();
@@ -15,11 +16,11 @@ public class SaveData
         SaveData data = new SaveData();
         data.savedLevel = GlobalCs.level;
         data.savedMoney = GlobalCs.money;
+        data.savedDamage = GlobalCs.damagePlayer;
         bf.Serialize(saveFile, data);
         saveFile.Close();
         Debug.Log("Game Saved");
-        Debug.Log("Save money " + GlobalCs.money);
-        Debug.Log("Save level " + GlobalCs.level);
+
     }
     public static void LoadGameInfo()
     {
@@ -31,9 +32,20 @@ public class SaveData
             saveFile.Close();
             GlobalCs.level = data.savedLevel;
             GlobalCs.money = data.savedMoney;
+            GlobalCs.damagePlayer = data.savedDamage;
             Debug.Log("Game load");
-            Debug.Log("Load money " + GlobalCs.money);
-            Debug.Log("Loadlevel " + GlobalCs.level);
+        }
+    }
+    public static void ResetData()
+    {
+        if (File.Exists(Application.persistentDataPath + "/MySaveData.dat"))
+        {
+            File.Delete(Application.persistentDataPath + "/MySaveData.dat");
+            GlobalCs.damagePlayer = 1;
+            GlobalCs.level = 1;
+            GlobalCs.money = 1;
+            GlobalCs.enemyHp = 1;
+            Debug.Log("Data reset ok");
         }
     }
 }
