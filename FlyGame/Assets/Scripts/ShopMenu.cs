@@ -22,9 +22,29 @@ public class ShopMenu : MonoBehaviour
 
     public void UpgradeSkiils(int index)
     {
+        switch (index)
+        {
+            case 0:
+                UpDmg(index);
+                break;
+            case 1:
+                UpSpeedPlayer(index);
+                break;
+        }
+    }
+    void UpDmg(int index)
+    {
+        float currentPrice = float.Parse(buttonUpgrade[index].GetComponentInChildren<Text>().text);
+
+        if (GlobalCs.money >= currentPrice)
+        {
+            GlobalCs.damagePlayer += 5;
+            GlobalCs.money -= currentPrice;
+        }
+    }
+    void UpSpeedPlayer(int index)
+    {
 
     }
-
-
 
 }
