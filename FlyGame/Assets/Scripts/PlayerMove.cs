@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     public GameObject projectilePrefab;
-    public float timeBetweenShots = 0.01f;
+
     private float timestamp;
     // Update is called once per frame
     void Update()
@@ -17,7 +17,7 @@ public class PlayerMove : MonoBehaviour
             if (Time.time >= timestamp)
             {
                 Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
-                timestamp = Time.time + timeBetweenShots;
+                timestamp = Time.time + GlobalCs.speedShotPlayer;
                 Debug.Log(Time.time);
                 Debug.Log(timestamp);
             }

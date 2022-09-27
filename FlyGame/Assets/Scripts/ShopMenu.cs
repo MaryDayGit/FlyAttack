@@ -44,7 +44,12 @@ public class ShopMenu : MonoBehaviour
     }
     void UpSpeedPlayer(int index)
     {
-
+        float currentPrice = float.Parse(buttonUpgrade[index].GetComponentInChildren<Text>().text);
+        if (GlobalCs.speedShotPlayer >= currentPrice)
+        {
+            GlobalCs.speedShotPlayer -= 0.1f;
+            GlobalCs.money -= currentPrice;
+        }
     }
 
 }

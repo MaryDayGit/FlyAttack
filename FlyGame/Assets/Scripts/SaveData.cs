@@ -10,6 +10,7 @@ public class SaveData
     public float savedMoney;
     public float savedDamage;
     public float priceIndex;
+    public float savedSpeedShootPlayer;
     public static void SaveGameInfo()
     {
         BinaryFormatter bf = new BinaryFormatter();
@@ -19,6 +20,7 @@ public class SaveData
         data.savedMoney = GlobalCs.money;
         data.savedDamage = GlobalCs.damagePlayer;
         data.priceIndex = GlobalCs.priceIndex;
+        data.savedSpeedShootPlayer = GlobalCs.speedShotPlayer;
         bf.Serialize(saveFile, data);
         saveFile.Close();
         Debug.Log("Game Saved");
@@ -36,6 +38,7 @@ public class SaveData
             GlobalCs.money = data.savedMoney;
             GlobalCs.damagePlayer = data.savedDamage;
             GlobalCs.priceIndex = data.priceIndex;
+            GlobalCs.speedShotPlayer = data.savedSpeedShootPlayer;
             Debug.Log("Game load");
         }
     }
@@ -49,6 +52,7 @@ public class SaveData
             GlobalCs.money = 1;
             GlobalCs.enemyHp = 1;
             GlobalCs.priceIndex = 2;
+            GlobalCs.speedShotPlayer = 1.5f;
             Debug.Log("Data reset ok");
         }
     }
