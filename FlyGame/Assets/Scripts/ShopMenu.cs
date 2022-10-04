@@ -13,9 +13,6 @@ public class ShopMenu : MonoBehaviour
         {
             float indexUp = (i + 2) / 2;
             float price = 5 * GlobalCs.priceIndex * indexUp;
-            Debug.Log(indexUp);
-            Debug.Log(GlobalCs.priceIndex);
-            Debug.Log(price);
             buttonUpgrade[i].GetComponentInChildren<Text>().text = price.ToString();
         }
     }
@@ -30,6 +27,10 @@ public class ShopMenu : MonoBehaviour
             case 1:
                 UpSpeedPlayer(index);
                 break;
+            case 2:
+                UpIdleMoneyIndex(index);
+                break;
+
         }
     }
     void UpDmg(int index)

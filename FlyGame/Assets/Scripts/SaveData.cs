@@ -25,6 +25,7 @@ public class SaveData
         data.savedSpeedShootPlayer = GlobalCs.speedShotPlayer;
         bf.Serialize(saveFile, data);
         saveFile.Close();
+
         Debug.Log("Game Saved");
 
     }
@@ -42,6 +43,7 @@ public class SaveData
             GlobalCs.priceIndex = data.priceIndex;
             GlobalCs.idleMoneyIndex = data.idleIndexSaved;
             GlobalCs.speedShotPlayer = data.savedSpeedShootPlayer;
+            IdleMechanic.OfflineTime();
             Debug.Log("Game load");
         }
     }

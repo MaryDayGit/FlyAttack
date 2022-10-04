@@ -14,7 +14,7 @@ public class GameUpdate : MonoBehaviour
     void Start()
     {
         SaveData.LoadGameInfo();
-        IdleMechanic.OfflineTime();
+
         float nextlevel = GlobalCs.level + 1;
         damagePlayerText.GetComponent<Text>().text = "УВС: " + GlobalCs.damagePlayer.ToString();
         levelNextText.GetComponent<Text>().text = nextlevel.ToString();
@@ -30,21 +30,11 @@ public class GameUpdate : MonoBehaviour
         moneyText.GetComponent<Text>().text = GlobalCs.money.ToString();
 
     }
-#if UNITY_ANDROID && !UNITY_EDITOR
     void OnApplicationQuit()
     {
-        Debug.Log("Сохранение после выхода");
         PlayerPrefs.SetString("LastSession", DateTime.Now.ToString());
+        Debug.Log(PlayerPrefs.GetString("LastSession"));
         SaveData.SaveGameInfo();
+    }
 
-    }
-#else
-    void OnApplicationPause(bool pauseStatus)
-    {
-        if (pauseStatus)
-        {
-            PlayerPrefs.SetString("LastSession", DateTime.Now.ToString());
-        }
-    }
-#endif
 }

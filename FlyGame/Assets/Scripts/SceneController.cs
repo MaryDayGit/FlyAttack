@@ -9,6 +9,10 @@ public class SceneController : MonoBehaviour
     {
         SaveData.ResetData();
         SceneManager.LoadScene(1);
-
+        Debug.Log(GlobalCs.damagePlayer);
+        Debug.Log(GlobalCs.enemyHp);
+        Debug.Log(GlobalCs.speedShotPlayer);
+        Debug.Log(GlobalCs.money);
+        Debug.Log(GlobalCs.priceIndex);
     }
 }

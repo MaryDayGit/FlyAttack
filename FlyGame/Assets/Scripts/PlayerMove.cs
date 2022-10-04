@@ -16,10 +16,12 @@ public class PlayerMove : MonoBehaviour
         {
             if (Time.time >= timestamp)
             {
+                Debug.Log(timestamp + "1");
+                Debug.Log(GlobalCs.speedShotPlayer + "глобал");
                 Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
                 timestamp = Time.time + GlobalCs.speedShotPlayer;
-                Debug.Log(Time.time);
-                Debug.Log(timestamp);
+                Debug.Log(timestamp + "2");
+                Debug.Log(GlobalCs.speedShotPlayer + "глобал");
             }
         }
     }
