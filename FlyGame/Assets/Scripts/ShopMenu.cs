@@ -30,6 +30,9 @@ public class ShopMenu : MonoBehaviour
             case 2:
                 UpIdleMoneyIndex(index);
                 break;
+            case 3:
+                UpMoneyIncome(index);
+                break;
 
         }
     }
@@ -59,6 +62,16 @@ public class ShopMenu : MonoBehaviour
         {
             GlobalCs.idleMoneyIndex += 0.1f;
             GlobalCs.money -= currentPrice;
+        }
+    }
+    void UpMoneyIncome(int index)
+    {
+        float currentPrice = float.Parse(buttonUpgrade[index].GetComponentInChildren<Text>().text);
+        if (GlobalCs.money >= currentPrice)
+        {
+            GlobalCs.money += 0.1f;
+            GlobalCs.money -= currentPrice;
+
         }
     }
 
