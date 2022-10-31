@@ -27,7 +27,6 @@ public class SaveData
         data.moneyIncome = GlobalCs.moneyIncome;
         bf.Serialize(saveFile, data);
         saveFile.Close();
-
         Debug.Log("Game Saved");
 
     }
@@ -46,6 +45,7 @@ public class SaveData
             GlobalCs.idleMoneyIndex = data.idleIndexSaved;
             GlobalCs.speedShotPlayer = data.savedSpeedShootPlayer;
             GlobalCs.moneyIncome = data.moneyIncome;
+            GlobalCs.moneyIncome = data.moneyIncome;
             IdleMechanic.OfflineTime();
             Debug.Log("Game load");
         }
@@ -60,8 +60,9 @@ public class SaveData
             GlobalCs.money = 1;
             GlobalCs.enemyHp = 1;
             GlobalCs.priceIndex = 2;
-            GlobalCs.speedShotPlayer = 1.5f;
+            GlobalCs.speedShotPlayer = 0.5f;
             GlobalCs.idleMoneyIndex = 1f;
+            GlobalCs.moneyIncome = 0.5f;
             GlobalCs.money = 1f;
             Debug.Log("Data reset ok");
         }
