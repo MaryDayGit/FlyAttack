@@ -23,7 +23,6 @@ public class GameUpdate : MonoBehaviour
         damagePlayerText.GetComponent<Text>().text = "УВС: " + GlobalCs.damagePlayer.ToString();
         levelNextText.GetComponent<Text>().text = nextLevel.ToString();
         levelPrevText.GetComponent<Text>().text = GlobalCs.level.ToString();
-
     }
     void Update()
     {
@@ -39,7 +38,6 @@ public class GameUpdate : MonoBehaviour
         PlayerPrefs.SetString("LastSession", DateTime.Now.ToString());
         Debug.Log(PlayerPrefs.GetString("LastSession"));
         SaveData.SaveGameInfo();
-
     }
 
 }
