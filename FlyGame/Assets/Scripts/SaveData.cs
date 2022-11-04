@@ -59,10 +59,10 @@ public class SaveData
             GlobalCs.level = 1;
             GlobalCs.money = 1;
             GlobalCs.enemyHp = 1;
-            GlobalCs.priceIndex = 2;
+            GlobalCs.priceIndex = 1.08f;
             GlobalCs.speedShotPlayer = 0.5f;
             GlobalCs.idleMoneyIndex = 1f;
-            GlobalCs.moneyIncome = 0.5f;
+            GlobalCs.moneyIncome = 1f;
             GlobalCs.money = 1f;
             Debug.Log("Data reset ok");
         }
