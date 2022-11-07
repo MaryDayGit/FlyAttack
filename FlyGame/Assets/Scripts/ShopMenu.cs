@@ -7,11 +7,19 @@ public class ShopMenu : MonoBehaviour
 {
     [SerializeField]
     GameObject[] buttonUpgrade;
-    private float indexPrice = 1;
+    private float indexPrice = 1.08f;
     string shortScaleNum;
     void Start()
     {
-        UpdateAllPrice();
+        if (GlobalCs.startGame == false) { UpdateAllPrice(); }
+        else
+        {
+            for (int i = 0; i < buttonUpgrade.Length; i++)
+            {
+                UpdatePrice(i);
+            }
+        }
+
     }
 
 
@@ -41,9 +49,8 @@ public class ShopMenu : MonoBehaviour
         {
             GlobalCs.damagePlayer += 5;
             GlobalCs.money -= currentPrice;
-            indexPrice += 0.5f;
+            GlobalCs.indexPriceDmg += 0.5f;
             UpdatePrice(index);
-
         }
     }
     void UpSpeedPlayer(int index)
@@ -54,7 +61,7 @@ public class ShopMenu : MonoBehaviour
         {
             GlobalCs.speedShotPlayer -= 0.1f;
             GlobalCs.money -= currentPrice;
-            indexPrice += 0.7f;
+            GlobalCs.indexPriceSpeed += 0.7f;
             UpdatePrice(index);
         }
     }
@@ -66,7 +73,7 @@ public class ShopMenu : MonoBehaviour
         {
             GlobalCs.idleMoneyIndex += 0.1f;
             GlobalCs.money -= currentPrice;
-            indexPrice += 1f;
+            GlobalCs.indexPriceIdle += 1f;
             UpdatePrice(index);
         }
     }
@@ -78,7 +85,7 @@ public class ShopMenu : MonoBehaviour
         {
             GlobalCs.money += 0.1f;
             GlobalCs.money -= currentPrice;
-            indexPrice += 1f;
+            GlobalCs.indexPriceIncome += 1f;
             UpdatePrice(index);
 
         }
@@ -106,29 +113,34 @@ public class ShopMenu : MonoBehaviour
             }
             shortScaleNum = PolyLabs.ShortScale.ParseFloat(price);
             buttonUpgrade[i].GetComponentInChildren<Text>().text = shortScaleNum.ToString();
+            GlobalCs.startGame = true;
         }
     }
     private void UpdatePrice(int i)
     {
         float baseCost = 0;
+        float index = 0;
         switch (i)
         {
             case 0:
                 baseCost = 25;
+                index = GlobalCs.indexPriceDmg;
                 break;
             case 1:
                 baseCost = 50;
+                index = GlobalCs.indexPriceSpeed;
                 break;
             case 2:
                 baseCost = 100;
+                index = GlobalCs.indexPriceIdle;
                 break;
             case 3:
                 baseCost = 150;
+                index = GlobalCs.indexPriceIncome;
                 break;
 
         }
-
-        float price = baseCost * Mathf.Pow(GlobalCs.priceIndex, indexPrice);
+        float price = baseCost * Mathf.Pow(indexPrice, index);
         shortScaleNum = PolyLabs.ShortScale.ParseFloat(price);
         buttonUpgrade[i].GetComponentInChildren<Text>().text = shortScaleNum.ToString();
     }

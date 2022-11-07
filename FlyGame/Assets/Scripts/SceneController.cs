@@ -13,6 +13,6 @@ public class SceneController : MonoBehaviour
         Debug.Log(GlobalCs.enemyHp);
         Debug.Log(GlobalCs.speedShotPlayer);
         Debug.Log(GlobalCs.money);
-        Debug.Log(GlobalCs.priceIndex);
+
     }
 }

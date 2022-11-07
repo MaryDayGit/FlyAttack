@@ -6,13 +6,17 @@ using UnityEngine;
 [System.Serializable]
 public class SaveData
 {
-    public float savedLevel;
-    public float savedMoney;
-    public float savedDamage;
-    public float priceIndex;
-    public float savedSpeedShootPlayer;
-    public float idleIndexSaved;
-    public float moneyIncome;
+    private float savedLevel;
+    private float savedMoney;
+    private float savedDamage;
+    private float savedSpeedShootPlayer;
+    private float idleIndexSaved;
+    private float moneyIncome;
+    private bool startGame;
+    private float indexPriceDmg;
+    private float indexPriceSpeed;
+    private float indexPriceIncome;
+    private float indexPriceIdle;
     public static void SaveGameInfo()
     {
         BinaryFormatter bf = new BinaryFormatter();
@@ -21,10 +25,14 @@ public class SaveData
         data.savedLevel = GlobalCs.level;
         data.savedMoney = GlobalCs.money;
         data.savedDamage = GlobalCs.damagePlayer;
-        data.priceIndex = GlobalCs.priceIndex;
+        data.indexPriceDmg = GlobalCs.indexPriceDmg;
+        data.indexPriceSpeed = GlobalCs.indexPriceSpeed;
+        data.indexPriceIncome = GlobalCs.indexPriceIncome;
+        data.indexPriceIdle = GlobalCs.indexPriceIdle;
         data.idleIndexSaved = GlobalCs.idleMoneyIndex;
         data.savedSpeedShootPlayer = GlobalCs.speedShotPlayer;
         data.moneyIncome = GlobalCs.moneyIncome;
+        data.startGame = GlobalCs.startGame;
         bf.Serialize(saveFile, data);
         saveFile.Close();
         Debug.Log("Game Saved");
@@ -41,11 +49,16 @@ public class SaveData
             GlobalCs.level = data.savedLevel;
             GlobalCs.money = data.savedMoney;
             GlobalCs.damagePlayer = data.savedDamage;
-            GlobalCs.priceIndex = data.priceIndex;
+            GlobalCs.indexPriceDmg = data.indexPriceDmg;
+            GlobalCs.indexPriceSpeed = data.indexPriceSpeed;
+            GlobalCs.indexPriceIncome = data.indexPriceIncome;
+            GlobalCs.indexPriceIdle = data.indexPriceIdle;
+            GlobalCs.idleMoneyIndex = data.idleIndexSaved;
             GlobalCs.idleMoneyIndex = data.idleIndexSaved;
             GlobalCs.speedShotPlayer = data.savedSpeedShootPlayer;
             GlobalCs.moneyIncome = data.moneyIncome;
             GlobalCs.moneyIncome = data.moneyIncome;
+            GlobalCs.startGame = data.startGame;
             IdleMechanic.OfflineTime();
             Debug.Log("Game load");
         }
@@ -59,11 +72,15 @@ public class SaveData
             GlobalCs.level = 1;
             GlobalCs.money = 1;
             GlobalCs.enemyHp = 1;
-            GlobalCs.priceIndex = 1.08f;
+            GlobalCs.indexPriceDmg = 1;
+            GlobalCs.indexPriceIdle = 1;
+            GlobalCs.indexPriceIncome = 1;
+            GlobalCs.indexPriceSpeed = 1;
             GlobalCs.speedShotPlayer = 0.5f;
             GlobalCs.idleMoneyIndex = 1f;
             GlobalCs.moneyIncome = 1f;
             GlobalCs.money = 1f;
+            GlobalCs.startGame = false;
             Debug.Log("Data reset ok");
         }
     }
