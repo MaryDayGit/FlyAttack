@@ -8,10 +8,11 @@ public class ShopMenu : MonoBehaviour
     [SerializeField]
     GameObject[] buttonUpgrade;
     private float indexPrice = 1.08f;
+
     string shortScaleNum;
     void Start()
     {
-        if (GlobalCs.startGame == false) { UpdateAllPrice(); }
+        if (GlobalCs.started == false) { UpdateAllPrice(); }
         else
         {
             for (int i = 0; i < buttonUpgrade.Length; i++)
@@ -19,10 +20,7 @@ public class ShopMenu : MonoBehaviour
                 UpdatePrice(i);
             }
         }
-
     }
-
-
     public void UpgradeSkiils(int index)
     {
         switch (index)
@@ -113,7 +111,7 @@ public class ShopMenu : MonoBehaviour
             }
             shortScaleNum = PolyLabs.ShortScale.ParseFloat(price);
             buttonUpgrade[i].GetComponentInChildren<Text>().text = shortScaleNum.ToString();
-            GlobalCs.startGame = true;
+            GlobalCs.started = true;
         }
     }
     private void UpdatePrice(int i)

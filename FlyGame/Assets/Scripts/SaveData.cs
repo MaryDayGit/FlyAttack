@@ -17,6 +17,7 @@ public class SaveData
     private float indexPriceSpeed;
     private float indexPriceIncome;
     private float indexPriceIdle;
+    private bool started;
     public static void SaveGameInfo()
     {
         BinaryFormatter bf = new BinaryFormatter();
@@ -33,6 +34,7 @@ public class SaveData
         data.savedSpeedShootPlayer = GlobalCs.speedShotPlayer;
         data.moneyIncome = GlobalCs.moneyIncome;
         data.startGame = GlobalCs.startGame;
+        data.started = GlobalCs.started;
         bf.Serialize(saveFile, data);
         saveFile.Close();
         Debug.Log("Game Saved");
@@ -59,6 +61,7 @@ public class SaveData
             GlobalCs.moneyIncome = data.moneyIncome;
             GlobalCs.moneyIncome = data.moneyIncome;
             GlobalCs.startGame = data.startGame;
+            GlobalCs.started = data.started;
             IdleMechanic.OfflineTime();
             Debug.Log("Game load");
         }
@@ -80,7 +83,8 @@ public class SaveData
             GlobalCs.idleMoneyIndex = 1f;
             GlobalCs.moneyIncome = 1f;
             GlobalCs.money = 1f;
-            GlobalCs.startGame = false;
+            GlobalCs.startGame = true;
+            GlobalCs.started = false;
             Debug.Log("Data reset ok");
         }
     }
