@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class GlobalCs : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class GlobalCs : MonoBehaviour
     public static float indexPriceSpeed;
     public static float indexPriceIncome;
     public static float indexPriceIdle;
+    public static float idleMoney;
+    public static TimeSpan ts;
     public static float screenHeigt = Screen.height;
     public static float screenWidth = Screen.width;
 

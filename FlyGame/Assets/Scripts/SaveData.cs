@@ -56,7 +56,6 @@ public class SaveData
             GlobalCs.indexPriceIncome = data.indexPriceIncome;
             GlobalCs.indexPriceIdle = data.indexPriceIdle;
             GlobalCs.idleMoneyIndex = data.idleIndexSaved;
-            GlobalCs.idleMoneyIndex = data.idleIndexSaved;
             GlobalCs.speedShotPlayer = data.savedSpeedShootPlayer;
             GlobalCs.moneyIncome = data.moneyIncome;
             GlobalCs.moneyIncome = data.moneyIncome;
