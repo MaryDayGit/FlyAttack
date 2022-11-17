@@ -18,6 +18,7 @@ public class SaveData
     private float indexPriceIncome;
     private float indexPriceIdle;
     private bool started;
+    private bool isOnSound;
     public static void SaveGameInfo()
     {
         BinaryFormatter bf = new BinaryFormatter();
@@ -35,6 +36,7 @@ public class SaveData
         data.moneyIncome = GlobalCs.moneyIncome;
         data.startGame = GlobalCs.startGame;
         data.started = GlobalCs.started;
+        data.isOnSound = GlobalCs.isOnSound;
         bf.Serialize(saveFile, data);
         saveFile.Close();
         Debug.Log("Game Saved");
@@ -61,6 +63,7 @@ public class SaveData
             GlobalCs.moneyIncome = data.moneyIncome;
             GlobalCs.startGame = data.startGame;
             GlobalCs.started = data.started;
+            GlobalCs.isOnSound = data.isOnSound;
             IdleMechanic.OfflineTime();
             Debug.Log("Game load");
         }
@@ -84,6 +87,7 @@ public class SaveData
             GlobalCs.money = 1f;
             GlobalCs.startGame = true;
             GlobalCs.started = false;
+            GlobalCs.isOnSound = true;
             Debug.Log("Data reset ok");
         }
     }

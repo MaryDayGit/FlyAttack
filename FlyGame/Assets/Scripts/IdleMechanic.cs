@@ -12,11 +12,12 @@ public class IdleMechanic : MonoBehaviour
         if (PlayerPrefs.HasKey("LastSession"))
         {
             GlobalCs.ts = DateTime.Now - DateTime.Parse(PlayerPrefs.GetString("LastSession"));
-            GlobalCs.idleMoney = GlobalCs.ts.Seconds / 60 * GlobalCs.idleMoneyIndex;
+            GlobalCs.idleMoney = GlobalCs.ts.Minutes * GlobalCs.idleMoneyIndex;
             GlobalCs.money += GlobalCs.idleMoney;
-            Debug.Log(GlobalCs.ts.Seconds);
+            Debug.Log(GlobalCs.ts.Minutes);
             Debug.Log(GlobalCs.idleMoney);
             Debug.Log(GlobalCs.idleMoneyIndex);
+
         }
         else
         {

@@ -21,6 +21,7 @@ public class GlobalCs : MonoBehaviour
     public static float indexPriceIdle;
     public static float idleMoney;
     public static TimeSpan ts;
+    public static bool isOnSound;
     public static float screenHeigt = Screen.height;
     public static float screenWidth = Screen.width;
 

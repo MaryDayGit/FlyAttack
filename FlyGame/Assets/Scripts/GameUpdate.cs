@@ -17,6 +17,7 @@ public class GameUpdate : MonoBehaviour
     void Start()
     {
         SaveData.LoadGameInfo();
+
         shortScaleNum = PolyLabs.ShortScale.ParseFloat(GlobalCs.money);
         moneyText.GetComponent<Text>().text = shortScaleNum;
         float nextLevel = GlobalCs.level + 1;
