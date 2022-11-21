@@ -13,7 +13,7 @@ public class GlobalCs : MonoBehaviour
     public static float speedShotPlayer;
     public static float idleMoneyIndex;
     public static float moneyIncome;
-    public static bool startGame;
+    public static bool startGameScene;
     public static bool started;
     public static float indexPriceDmg;
     public static float indexPriceSpeed;

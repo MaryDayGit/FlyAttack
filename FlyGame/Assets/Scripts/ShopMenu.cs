@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ShopMenu : MonoBehaviour
 {
     [SerializeField]
-    GameObject[] buttonUpgrade;
+    readonly GameObject[] buttonUpgrade;
     private float indexPrice = 1.08f;
 
     string shortScaleNum;

@@ -17,11 +17,10 @@ public class GameUpdate : MonoBehaviour
     void Start()
     {
         SaveData.LoadGameInfo();
-
         shortScaleNum = PolyLabs.ShortScale.ParseFloat(GlobalCs.money);
         moneyText.GetComponent<Text>().text = shortScaleNum;
         float nextLevel = GlobalCs.level + 1;
-        damagePlayerText.GetComponent<Text>().text = "УВС: " + GlobalCs.damagePlayer.ToString();
+        damagePlayerText.GetComponent<Text>().text = "DMG: " + GlobalCs.damagePlayer.ToString();
         levelNextText.GetComponent<Text>().text = nextLevel.ToString();
         levelPrevText.GetComponent<Text>().text = GlobalCs.level.ToString();
     }
@@ -30,14 +29,13 @@ public class GameUpdate : MonoBehaviour
         shortScaleNum = PolyLabs.ShortScale.ParseFloat(GlobalCs.money);
         moneyText.GetComponent<Text>().text = shortScaleNum;
         float nextLevel = GlobalCs.level + 1;
-        damagePlayerText.GetComponent<Text>().text = "УВС: " + GlobalCs.damagePlayer.ToString();
+        damagePlayerText.GetComponent<Text>().text = "DMG: " + GlobalCs.damagePlayer.ToString();
         levelNextText.GetComponent<Text>().text = nextLevel.ToString();
         levelPrevText.GetComponent<Text>().text = GlobalCs.level.ToString();
     }
-    void OnApplicationQuit()
+    void OnApplicationPause()
     {
         PlayerPrefs.SetString("LastSession", DateTime.Now.ToString());
-        Debug.Log(PlayerPrefs.GetString("LastSession"));
         SaveData.SaveGameInfo();
     }
 

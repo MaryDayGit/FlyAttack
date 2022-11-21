@@ -12,7 +12,7 @@ public class SaveData
     private float savedSpeedShootPlayer;
     private float idleIndexSaved;
     private float moneyIncome;
-    private bool startGame;
+    private bool startGameScene;
     private float indexPriceDmg;
     private float indexPriceSpeed;
     private float indexPriceIncome;
@@ -21,9 +21,9 @@ public class SaveData
     private bool isOnSound;
     public static void SaveGameInfo()
     {
-        BinaryFormatter bf = new BinaryFormatter();
+        BinaryFormatter bf = new();
         FileStream saveFile = File.Create(Application.persistentDataPath + "/MySaveData.dat");
-        SaveData data = new SaveData();
+        SaveData data = new();
         data.savedLevel = GlobalCs.level;
         data.savedMoney = GlobalCs.money;
         data.savedDamage = GlobalCs.damagePlayer;
@@ -34,7 +34,7 @@ public class SaveData
         data.idleIndexSaved = GlobalCs.idleMoneyIndex;
         data.savedSpeedShootPlayer = GlobalCs.speedShotPlayer;
         data.moneyIncome = GlobalCs.moneyIncome;
-        data.startGame = GlobalCs.startGame;
+        data.startGameScene = GlobalCs.startGameScene;
         data.started = GlobalCs.started;
         data.isOnSound = GlobalCs.isOnSound;
         bf.Serialize(saveFile, data);
@@ -46,7 +46,7 @@ public class SaveData
     {
         if (File.Exists(Application.persistentDataPath + "/MySaveData.dat"))
         {
-            BinaryFormatter bf = new BinaryFormatter();
+            BinaryFormatter bf = new();
             FileStream saveFile = File.Open(Application.persistentDataPath + "/MySaveData.dat", FileMode.Open);
             SaveData data = (SaveData)bf.Deserialize(saveFile);
             saveFile.Close();
@@ -61,7 +61,7 @@ public class SaveData
             GlobalCs.speedShotPlayer = data.savedSpeedShootPlayer;
             GlobalCs.moneyIncome = data.moneyIncome;
             GlobalCs.moneyIncome = data.moneyIncome;
-            GlobalCs.startGame = data.startGame;
+            GlobalCs.startGameScene = data.startGameScene;
             GlobalCs.started = data.started;
             GlobalCs.isOnSound = data.isOnSound;
             IdleMechanic.OfflineTime();
@@ -70,25 +70,23 @@ public class SaveData
     }
     public static void ResetData()
     {
-        if (File.Exists(Application.persistentDataPath + "/MySaveData.dat"))
-        {
-            File.Delete(Application.persistentDataPath + "/MySaveData.dat");
-            GlobalCs.damagePlayer = 1;
-            GlobalCs.level = 1;
-            GlobalCs.money = 1;
-            GlobalCs.enemyHp = 1;
-            GlobalCs.indexPriceDmg = 1;
-            GlobalCs.indexPriceIdle = 1;
-            GlobalCs.indexPriceIncome = 1;
-            GlobalCs.indexPriceSpeed = 1;
-            GlobalCs.speedShotPlayer = 0.5f;
-            GlobalCs.idleMoneyIndex = 1f;
-            GlobalCs.moneyIncome = 1f;
-            GlobalCs.money = 1f;
-            GlobalCs.startGame = true;
-            GlobalCs.started = false;
-            GlobalCs.isOnSound = true;
-            Debug.Log("Data reset ok");
-        }
+        File.Delete(Application.persistentDataPath + "/MySaveData.dat");
+        GlobalCs.damagePlayer = 1;
+        GlobalCs.level = 1;
+        GlobalCs.money = 1;
+        GlobalCs.enemyHp = 1;
+        GlobalCs.indexPriceDmg = 1;
+        GlobalCs.indexPriceIdle = 1;
+        GlobalCs.indexPriceIncome = 1;
+        GlobalCs.indexPriceSpeed = 1;
+        GlobalCs.speedShotPlayer = 0.5f;
+        GlobalCs.idleMoneyIndex = 1f;
+        GlobalCs.moneyIncome = 1f;
+        GlobalCs.money = 1f;
+        GlobalCs.startGameScene = true;
+        GlobalCs.started = false;
+        GlobalCs.isOnSound = true;
+        Debug.Log("Data reset ok");
+
     }
 }

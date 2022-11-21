@@ -3,13 +3,14 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
-    void Start()
+    private void Start()
     {
         SaveData.LoadGameInfo();
-        if (GlobalCs.startGame == false)
+        Debug.Log(GlobalCs.startGameScene);
+        if (GlobalCs.startGameScene == false)
         {
             SceneManager.LoadScene(1);
-            GlobalCs.startGame = true;
+            GlobalCs.startGameScene = true;
         }
         else { SceneManager.LoadScene(2); }
     }
