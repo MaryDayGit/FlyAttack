@@ -1,8 +1,6 @@
-using System.Threading.Tasks;
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
-using System.Threading;
+
 
 public class SpawnController : MonoBehaviour
 {
@@ -20,7 +18,7 @@ public class SpawnController : MonoBehaviour
 
         int enemyIndex = Random.Range(0, cubeEnemy.Length);
 
-        Vector3 spawnPos = new Vector3(Random.Range(-GlobalCs.screenWidth / 210, GlobalCs.screenWidth / 210), GlobalCs.screenHeigt / 150, 0);
+        Vector3 spawnPos = new(Random.Range(-GlobalCs.screenWidth / 210, GlobalCs.screenWidth / 210), GlobalCs.screenHeigt / 150, 0);
         Instantiate(cubeEnemy[enemyIndex], spawnPos, cubeEnemy[enemyIndex].transform.rotation);
 
     }

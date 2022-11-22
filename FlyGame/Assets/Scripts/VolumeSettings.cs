@@ -4,7 +4,7 @@ public class VolumeSettings : MonoBehaviour
 {
     private Button _button;
     [SerializeField]
-    private Sprite[] sprite;
+    private readonly Sprite[] sprite;
     private void Awake()
     {
         _button = GetComponent<Button>();

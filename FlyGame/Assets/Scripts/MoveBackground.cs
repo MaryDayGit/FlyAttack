@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class MoveBackground : MonoBehaviour
@@ -8,7 +7,6 @@ public class MoveBackground : MonoBehaviour
     private float back_Size;
     private float back_poz;
     private readonly float speed = 1;
-    // Start is called before the first frame update
     void Start()
     {
         back_Transform = GetComponent<Transform>();

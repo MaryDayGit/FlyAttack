@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ShopMenu : MonoBehaviour
 {
     [SerializeField]
-    readonly GameObject[] buttonUpgrade;
-    private float indexPrice = 1.08f;
+    GameObject[] buttonUpgrade;
+    private readonly float indexPrice = 1.08f;
 
     string shortScaleNum;
     void Start()

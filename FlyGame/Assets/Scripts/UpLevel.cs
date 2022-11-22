@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,12 +12,13 @@ public class UpLevel : MonoBehaviour
         levelProgress = levelProgressBar;
     }
 
-    public static void fillLevelProgressBar()
+    public static void FillLevelProgressBar()
     {
         levelProgress.value += GlobalCs.exp;
         if (levelProgress.value == levelProgress.maxValue)
         {
             levelProgress.value = 0;
+            levelProgress.maxValue += 10;
             GlobalCs.level += 1;
 
         }

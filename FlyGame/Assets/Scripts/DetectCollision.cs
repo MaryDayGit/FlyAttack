@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
-using UnityEngine.UI;
+
 
 public class DetectCollision : MonoBehaviour
 {
@@ -9,12 +8,12 @@ public class DetectCollision : MonoBehaviour
     public GameObject projectilePrefab;
     private void OnTriggerEnter2D(Collider2D other)
     {
-        enemyHpLocal = enemyHpLocal - GlobalCs.damagePlayer;
+        enemyHpLocal -= enemyHpLocal - GlobalCs.damagePlayer;
         //TODO УДАЛЯТЬ ПРЕФАБ РАКЕТЫ
         if (enemyHpLocal <= 0)
         {
             Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
-            UpLevel.fillLevelProgressBar();
+            UpLevel.FillLevelProgressBar();
             Destroy(gameObject);
             Destroy(other.gameObject);
             GlobalCs.money += 1 * GlobalCs.moneyIncome;
