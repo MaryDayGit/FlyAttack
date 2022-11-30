@@ -8,7 +8,7 @@ public class DetectCollision : MonoBehaviour
     public GameObject projectilePrefab;
     private void OnTriggerEnter2D(Collider2D other)
     {
-        enemyHpLocal -= enemyHpLocal - GlobalCs.damagePlayer;
+        enemyHpLocal = enemyHpLocal - GlobalCs.damagePlayer;
         //TODO УДАЛЯТЬ ПРЕФАБ РАКЕТЫ
         if (enemyHpLocal <= 0)
         {
@@ -19,6 +19,10 @@ public class DetectCollision : MonoBehaviour
             GlobalCs.money += 1 * GlobalCs.moneyIncome;
             GlobalCs.exp = 1;
             enemyHpLocal = GlobalCs.enemyHp;
+        }
+        else
+        {
+            Destroy(other.gameObject);
         }
 
     }

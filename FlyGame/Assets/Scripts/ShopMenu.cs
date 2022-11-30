@@ -1,4 +1,5 @@
 
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -137,7 +138,7 @@ public class ShopMenu : MonoBehaviour
                 break;
 
         }
-        float price = baseCost * Mathf.Pow(indexPrice, index);
+        float price = ((float)Math.Round(baseCost * Mathf.Pow(indexPrice, index), 0));
         shortScaleNum = PolyLabs.ShortScale.ParseFloat(price);
         buttonUpgrade[i].GetComponentInChildren<Text>().text = shortScaleNum.ToString();
     }

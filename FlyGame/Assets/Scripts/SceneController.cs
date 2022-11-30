@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
-    private void Start()
+    private void Awake()
     {
         SaveData.LoadGameInfo();
         Debug.Log(GlobalCs.startGameScene);

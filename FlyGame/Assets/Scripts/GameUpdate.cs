@@ -1,9 +1,6 @@
 using System;
-
 using UnityEngine;
 using UnityEngine.UI;
-
-
 
 
 public class GameUpdate : MonoBehaviour
@@ -33,6 +30,11 @@ public class GameUpdate : MonoBehaviour
         levelPrevText.GetComponent<Text>().text = GlobalCs.level.ToString();
     }
     void OnApplicationPause()
+    {
+        PlayerPrefs.SetString("LastSession", DateTime.Now.ToString());
+        SaveData.SaveGameInfo();
+    }
+    void OnApplicationQuit()
     {
         PlayerPrefs.SetString("LastSession", DateTime.Now.ToString());
         SaveData.SaveGameInfo();
