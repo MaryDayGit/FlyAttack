@@ -8,16 +8,19 @@ public class IdleMechanic : MonoBehaviour
 
     public static void OfflineTime()
     {
-
         if (PlayerPrefs.HasKey("LastSession"))
         {
             GlobalCs.ts = DateTime.Now - DateTime.Parse(PlayerPrefs.GetString("LastSession"));
-            GlobalCs.idleMoney = GlobalCs.ts.Minutes * GlobalCs.idleMoneyIndex;
-            GlobalCs.money += GlobalCs.idleMoney;
-            Debug.Log(GlobalCs.ts.Minutes);
-            Debug.Log(GlobalCs.idleMoney);
-            Debug.Log(GlobalCs.idleMoneyIndex);
-
+            if (GlobalCs.ts.Minutes < 120)
+            {
+                GlobalCs.idleMoney = GlobalCs.ts.Minutes * GlobalCs.idleMoneyIndex;
+                GlobalCs.money += GlobalCs.idleMoney;
+            }
+            else
+            {
+                GlobalCs.idleMoney = 120 * GlobalCs.idleMoneyIndex;
+                GlobalCs.money += GlobalCs.idleMoney;
+            }
         }
         else
         {

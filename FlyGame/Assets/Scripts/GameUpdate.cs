@@ -10,7 +10,7 @@ public class GameUpdate : MonoBehaviour
     public GameObject moneyText;
     public GameObject damagePlayerText;
     string shortScaleNum;
-    void Start()
+    void Awake()
     {
         SaveData.LoadGameInfo();
         shortScaleNum = PolyLabs.ShortScale.ParseFloat(GlobalCs.money);

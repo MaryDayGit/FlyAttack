@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9fc8f9a415dd57b46b59ae47707e5455
+guid: 54cce61ed7be1094b8b630d5e2797a01
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - GAMECUBEN
+  - Marske
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

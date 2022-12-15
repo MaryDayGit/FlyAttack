@@ -9,7 +9,7 @@ public class DetectCollision : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         enemyHpLocal = enemyHpLocal - GlobalCs.damagePlayer;
-        //TODO УДАЛЯТЬ ПРЕФАБ РАКЕТЫ
+        
         if (enemyHpLocal <= 0)
         {
             Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
