@@ -1,10 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using PolyLabs;
-
 
 
 public class GameUpdate : MonoBehaviour
@@ -14,32 +10,34 @@ public class GameUpdate : MonoBehaviour
     public GameObject moneyText;
     public GameObject damagePlayerText;
     string shortScaleNum;
-    void Start()
+    void Awake()
     {
         SaveData.LoadGameInfo();
         shortScaleNum = PolyLabs.ShortScale.ParseFloat(GlobalCs.money);
         moneyText.GetComponent<Text>().text = shortScaleNum;
         float nextLevel = GlobalCs.level + 1;
-        damagePlayerText.GetComponent<Text>().text = "УВС: " + GlobalCs.damagePlayer.ToString();
+        damagePlayerText.GetComponent<Text>().text = "DMG: " + GlobalCs.damagePlayer.ToString();
         levelNextText.GetComponent<Text>().text = nextLevel.ToString();
         levelPrevText.GetComponent<Text>().text = GlobalCs.level.ToString();
-
     }
     void Update()
     {
         shortScaleNum = PolyLabs.ShortScale.ParseFloat(GlobalCs.money);
         moneyText.GetComponent<Text>().text = shortScaleNum;
         float nextLevel = GlobalCs.level + 1;
-        damagePlayerText.GetComponent<Text>().text = "УВС: " + GlobalCs.damagePlayer.ToString();
+        damagePlayerText.GetComponent<Text>().text = "DMG: " + GlobalCs.damagePlayer.ToString();
         levelNextText.GetComponent<Text>().text = nextLevel.ToString();
         levelPrevText.GetComponent<Text>().text = GlobalCs.level.ToString();
+    }
+    void OnApplicationPause()
+    {
+        PlayerPrefs.SetString("LastSession", DateTime.Now.ToString());
+        SaveData.SaveGameInfo();
     }
     void OnApplicationQuit()
     {
         PlayerPrefs.SetString("LastSession", DateTime.Now.ToString());
-        Debug.Log(PlayerPrefs.GetString("LastSession"));
         SaveData.SaveGameInfo();
-
     }
 
 }

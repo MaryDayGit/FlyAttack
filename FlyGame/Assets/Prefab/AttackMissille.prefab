@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 4981187688684516448}
   - component: {fileID: -6452355839072748248}
   - component: {fileID: 3828750681765985383}
-  - component: {fileID: -4246465837626337450}
   - component: {fileID: -8167695216878469084}
   m_Layer: 0
   m_Name: AttackMissille
@@ -161,19 +160,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-4246465837626337450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5733825012821504629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 737621c5285c61b4b8a5d66283affbc0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 0}
 --- !u!114 &-8167695216878469084
 MonoBehaviour:
   m_ObjectHideFlags: 0
