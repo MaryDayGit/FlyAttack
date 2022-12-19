@@ -5,7 +5,7 @@ using GoogleMobileAds.Api;
 
 public class RewardADS : MonoBehaviour
 {
-    private string RewardedUnitId = "ca-app-pub-3940256099942544/5224354917";
+    private string RewardedUnitId = "ca-app-pub-5148027685452292/5807661229";
     private RewardedAd rewardedAd;
     [SerializeField] float _sec;
     [SerializeField] GameObject _objectToActive;

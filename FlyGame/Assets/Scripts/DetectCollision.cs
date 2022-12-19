@@ -9,8 +9,11 @@ public class DetectCollision : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         enemyHpLocal = enemyHpLocal - GlobalCs.damagePlayer;
-        
-        if (enemyHpLocal <= 0)
+        if (other.gameObject.name == "Player")
+        {
+            GlobalCs.money -= 0.5f * GlobalCs.level;
+        }
+        else if (enemyHpLocal <= 0)
         {
             Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
             UpLevel.FillLevelProgressBar();

@@ -73,7 +73,7 @@ public class SaveData
         File.Delete(Application.persistentDataPath + "/MySaveData.dat");
         GlobalCs.damagePlayer = 1;
         GlobalCs.level = 1;
-        GlobalCs.money = 1;
+        GlobalCs.money = 1f;
         GlobalCs.enemyHp = 1;
         GlobalCs.indexPriceDmg = 1;
         GlobalCs.indexPriceIdle = 1;
@@ -82,7 +82,6 @@ public class SaveData
         GlobalCs.speedShotPlayer = 0.5f;
         GlobalCs.idleMoneyIndex = 1f;
         GlobalCs.moneyIncome = 1f;
-        GlobalCs.money = 1f;
         GlobalCs.startGameScene = true;
         GlobalCs.started = false;
         GlobalCs.isOnSound = true;

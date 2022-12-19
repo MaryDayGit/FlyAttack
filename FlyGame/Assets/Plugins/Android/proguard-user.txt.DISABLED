@@ -1,0 +1,2 @@
+-keep,includedescriptorclasses public class com.google.** { *; }
+-keep public class com.unity.androidnotifications.** { *; }

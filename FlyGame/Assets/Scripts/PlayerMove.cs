@@ -17,6 +17,7 @@ public class PlayerMove : MonoBehaviour
                 timestamp = Time.time + GlobalCs.speedShotPlayer;
             }
         }
+
     }
     private void Start()
     {
