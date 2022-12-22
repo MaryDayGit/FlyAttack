@@ -11,7 +11,11 @@ public class DetectCollision : MonoBehaviour
         enemyHpLocal = enemyHpLocal - GlobalCs.damagePlayer;
         if (other.gameObject.name == "Player")
         {
-            GlobalCs.money -= 0.5f * GlobalCs.level;
+            if (GlobalCs.money >= 0)
+            {
+                GlobalCs.money -= 0.5f * GlobalCs.level;
+            }
+            else { GlobalCs.money = 0; }
         }
         else if (enemyHpLocal <= 0)
         {

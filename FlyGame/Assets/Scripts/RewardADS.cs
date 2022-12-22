@@ -17,7 +17,7 @@ public class RewardADS : MonoBehaviour
     private void HandleUserEarnedReward(object sender, Reward e)
     {
         float coins = GlobalCs.money;
-        coins += 150;
+        coins += 50 * (GlobalCs.level * 0.5f);
         GlobalCs.money += coins;
     }
     public void ShowAd()
@@ -43,5 +43,6 @@ public class RewardADS : MonoBehaviour
         AdRequest adRequest = new AdRequest.Builder().Build();
         rewardedAd.LoadAd(adRequest);
         rewardedAd.OnUserEarnedReward += HandleUserEarnedReward;
+
     }
 }

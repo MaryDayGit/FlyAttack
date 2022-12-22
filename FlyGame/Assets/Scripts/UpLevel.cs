@@ -20,6 +20,7 @@ public class UpLevel : MonoBehaviour
             levelProgress.value = 0;
             levelProgress.maxValue += 10;
             GlobalCs.level += 1;
+            GlobalCs.enemyHp += 1;
 
         }
     }

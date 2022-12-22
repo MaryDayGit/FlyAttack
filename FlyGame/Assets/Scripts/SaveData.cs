@@ -16,6 +16,7 @@ public class SaveData
     private float indexPriceDmg;
     private float indexPriceSpeed;
     private float indexPriceIncome;
+    private float enemyHp;
     private float indexPriceIdle;
     private bool started;
     private bool isOnSound;
@@ -36,6 +37,7 @@ public class SaveData
         data.moneyIncome = GlobalCs.moneyIncome;
         data.startGameScene = GlobalCs.startGameScene;
         data.started = GlobalCs.started;
+        data.enemyHp = GlobalCs.enemyHp;
         data.isOnSound = GlobalCs.isOnSound;
         bf.Serialize(saveFile, data);
         saveFile.Close();
@@ -52,6 +54,7 @@ public class SaveData
             saveFile.Close();
             GlobalCs.level = data.savedLevel;
             GlobalCs.money = data.savedMoney;
+            GlobalCs.enemyHp = data.enemyHp;
             GlobalCs.damagePlayer = data.savedDamage;
             GlobalCs.indexPriceDmg = data.indexPriceDmg;
             GlobalCs.indexPriceSpeed = data.indexPriceSpeed;

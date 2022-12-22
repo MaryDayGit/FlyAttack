@@ -45,9 +45,9 @@ public class ShopMenu : MonoBehaviour
         float currentPrice = float.Parse(buttonUpgrade[index].GetComponentInChildren<Text>().text);
         if (GlobalCs.money >= currentPrice)
         {
-            GlobalCs.damagePlayer += 5;
+            GlobalCs.damagePlayer += 3;
             GlobalCs.money -= currentPrice;
-            GlobalCs.indexPriceDmg += 0.5f;
+            GlobalCs.indexPriceDmg += 0.8f;
             UpdatePrice(index);
         }
     }
@@ -59,7 +59,7 @@ public class ShopMenu : MonoBehaviour
         {
             GlobalCs.speedShotPlayer -= 0.1f;
             GlobalCs.money -= currentPrice;
-            GlobalCs.indexPriceSpeed += 0.7f;
+            GlobalCs.indexPriceSpeed += 1f;
             UpdatePrice(index);
         }
     }
@@ -71,7 +71,7 @@ public class ShopMenu : MonoBehaviour
         {
             GlobalCs.idleMoneyIndex += 0.1f;
             GlobalCs.money -= currentPrice;
-            GlobalCs.indexPriceIdle += 1f;
+            GlobalCs.indexPriceIdle += 1.2f;
             UpdatePrice(index);
         }
     }
@@ -81,9 +81,9 @@ public class ShopMenu : MonoBehaviour
         float currentPrice = float.Parse(buttonUpgrade[index].GetComponentInChildren<Text>().text);
         if (GlobalCs.money >= currentPrice)
         {
-            GlobalCs.money += 0.1f;
+            GlobalCs.moneyIncome += 0.5f;
             GlobalCs.money -= currentPrice;
-            GlobalCs.indexPriceIncome += 1f;
+            GlobalCs.indexPriceIncome += 1.3f;
             UpdatePrice(index);
 
         }
